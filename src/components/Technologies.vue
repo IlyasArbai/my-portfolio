@@ -101,7 +101,7 @@ onBeforeUnmount(() => mm?.revert());
 <template>
   <!-- Technologies -->
   <section
-    class="w-full border-y border-neutral-800/60 bg-neutral-950 flex flex-col justify-center max-[375px]:py-3 max-[375px]:h-full h-[15vh]"
+    class="w-full border-y border-neutral-800/60 bg-neutral-950 flex flex-col justify-center max-[375px]:py-3 max-[375px]:h-full h-[15dvh]"
     aria-labelledby="tech-heading"
   >
     <h2

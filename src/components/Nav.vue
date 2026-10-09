@@ -14,7 +14,7 @@ const closeMenu = () => {
 
 <template>
   <nav
-    class="sticky top-0 z-50 w-full border-b border-neutral-800/60 bg-neutral-950/80 backdrop-blur-xl flex items-center justify-between px-10 md:px-20 xl:px-30 h-[10vh]"
+    class="sticky top-0 z-50 w-full border-b border-neutral-800/60 bg-neutral-950/80 backdrop-blur-xl flex items-center justify-between px-10 md:px-20 xl:px-30 h-[10dvh]"
   >
     <a
       href="#"
