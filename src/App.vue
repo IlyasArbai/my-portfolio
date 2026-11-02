@@ -12,16 +12,16 @@ const projects = [
     description:
       'A job-search platform where users can explore opportunities, search listings, and view job details through a clean, responsive interface.',
 
-    image: '/projects/indeed-clone.png',
+    image: '/projects/indeed/indeed-clone.png',
     technologies: ['Laravel', 'PHP', 'PostgreSQL', 'Blade'],
     github: 'https://github.com/IlyasArbai/indeed-clone.git',
 
     // Additional screenshots shown inside the gallery modal.
     gallery: [
-      '/projects/indeed-login.png',
-      '/projects/indeed-register-type.png',
-      '/projects/indeed-register-company.png',
-      '/projects/indeed-register-user.png',
+      '/projects/indeed/indeed-login.png',
+      '/projects/indeed/indeed-register-type.png',
+      '/projects/indeed/indeed-register-company.png',
+      '/projects/indeed/indeed-register-user.png',
     ],
     live: '',
   },
@@ -32,21 +32,46 @@ const projects = [
     description:
       'A cosmetics e-commerce storefront inspired by premium beauty brands, with a polished visual presentation and product-focused browsing experience.',
 
-    image: '/projects/rituals-clone.png',
+    image: '/projects/rituals/rituals-clone.png',
     technologies: ['Vue.js', 'Tailwind CSS', 'PostgreSQL', 'Express', 'Docker'], // Update with your actual stack
     github: 'https://github.com/IlyasArbai/rituals-clone.git', // Add your repository URL
     live: 'https://algorithmegenius.tech/', // Replace with your deployed URL
 
     gallery: [
-      '/projects/rituals-products.png',
-      '/projects/rituals-details.png',
-      '/projects/rituals-dashboard.png',
-      '/projects/rituals-login.png',
-      '/projects/rituals-register.png',
+      '/projects/rituals/rituals-products.png',
+      '/projects/rituals/rituals-details.png',
+      '/projects/rituals/rituals-dashboard.png',
+      '/projects/rituals/rituals-login.png',
+      '/projects/rituals/rituals-register.png',
     ],
   },
 
-  // Add your next project using the same structure.
+  {
+    name: 'Messenger',
+    category: 'Messaging & Real-Time Communication',
+    description:
+      'A real-time messaging platform that enables users to communicate seamlessly through conversations and manage chat requests. Built with a responsive interface and a robust backend to deliver a smooth and reliable messaging experience.',
+
+    image: '/projects/messanger/conversation.png',
+    technologies: [
+      'React.js',
+      'Tailwind CSS',
+      'PostgreSQL',
+      'Express.js',
+      'Docker',
+      'Socket.io',
+      'Redis',
+    ],
+    github: 'https://github.com/IlyasArbai/Messanger.git',
+    live: 'https://messanger.algorithmegenius.tech/',
+
+    gallery: [
+      '/projects/messanger/requests.png',
+      '/projects/messanger/register.png',
+      '/projects/messanger/login.png',
+      '/projects/messanger/home.png',
+    ],
+  },
 ];
 
 // Gallery modal state
