@@ -159,7 +159,7 @@ watch(currentImage, resetZoom);
   <!-- About -->
   <section
     id="about"
-    class="max-[375px]:h-full max-[375px]:scroll-mt-20 h-[75dvh] flex flex-col md:flex-row w-full items-center max-[375px]:py-5 py-10 px-10 md:px-20 xl:px-30 max-[375px]:gap-5 gap-10"
+    class="max-[375px]:h-full h-[75dvh] flex flex-col md:flex-row w-full items-center max-[375px]:py-5 py-10 px-10 md:px-20 xl:px-30 max-[375px]:gap-5 gap-10"
   >
     <!-- Hero Content -->
     <div class="w-full md:w-1/2">
@@ -212,12 +212,12 @@ watch(currentImage, resetZoom);
   </section>
 
   <!-- Technologies -->
-  <section class="border-t scroll-mt-[10dvh] border-neutral-900 mb-10">
+  <section class="border-t border-neutral-900 mb-10">
     <Technologies />
   </section>
 
   <!--  projects slider -->
-  <div id="projects" class="relative h-[90dvh] flex-1">
+  <section id="projects" class="relative h-[85dvh] flex-1">
     <div
       class="flex h-full items-stretch gap-5 overflow-x-auto overflow-y-hidden pb-4 snap-x snap-mandatory scroll-smooth overscroll-x-contain sm:gap-6"
     >
@@ -306,7 +306,7 @@ watch(currentImage, resetZoom);
     <div
       class="pointer-events-none absolute bottom-4 right-0 top-0 w-10 bg-gradient-to-l from-neutral-950/80 to-transparent sm:w-16"
     ></div>
-  </div>
+  </section>
 
   <!-- Contact -->
   <section

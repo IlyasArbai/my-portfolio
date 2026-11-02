@@ -6,8 +6,6 @@ html {
 body {
   background-color: black;
 }
-@media (min-width: 375px) {
-  section {
-    scroll-margin-top: 80px;
-  }
+section {
+  scroll-margin-top: 15vh;
 }
