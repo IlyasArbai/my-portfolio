@@ -212,7 +212,7 @@ watch(currentImage, resetZoom);
   </section>
 
   <!-- Technologies -->
-  <section class="border-t border-neutral-900">
+  <section class="border-t scroll-mt-[10dvh] border-neutral-900 mb-10">
     <Technologies />
   </section>
 
