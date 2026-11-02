@@ -216,40 +216,20 @@ watch(currentImage, resetZoom);
     <Technologies />
   </section>
 
-  <!-- Projects -->
-  <section
-    id="projects"
-    class="flex min-h-screen flex-col bg-neutral-950 px-5 py-20 text-white sm:px-8 lg:h-[90vh] lg:min-h-0 lg:px-12 lg:py-8 xl:px-20"
-  >
-    <!-- Section heading -->
-    <div class="mb-8 flex shrink-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-      <div>
-        <p class="mb-2 text-sm font-medium uppercase tracking-[0.25em] text-emerald-400">
-          What I've built
-        </p>
-
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-          Selected Projects<span class="text-emerald-400">.</span>
-        </h2>
-      </div>
-
-      <p class="max-w-md text-sm leading-6 text-neutral-400">
-        A selection of projects showcasing my development skills, technical decisions, and attention
-        to user experience.
-      </p>
-    </div>
-
-    <!-- Projects grid -->
-    <div class="grid gap-6 sm:grid-cols-2 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:pb-2">
+  <!--  projects slider -->
+  <div class="relative min-h-0 flex-1">
+    <div
+      class="flex h-full items-stretch gap-5 overflow-x-auto overflow-y-hidden pb-4 snap-x snap-mandatory scroll-smooth overscroll-x-contain sm:gap-6"
+    >
       <article
         v-for="(project, index) in projects"
         :key="project.name"
-        class="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/70 transition duration-300 hover:-translate-y-1 hover:border-emerald-400/40 hover:bg-neutral-900"
+        class="group flex h-full min-w-0 shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/70 transition duration-300 hover:border-emerald-400/40 hover:bg-neutral-900 basis-[85%] sm:basis-[65%] lg:basis-[44%]"
       >
-        <!-- Main project screenshot: no overlays -->
+        <!-- Project screenshot -->
         <button
           type="button"
-          class="block w-full overflow-hidden bg-neutral-800 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-400"
+          class="block w-full shrink-0 overflow-hidden bg-neutral-800 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-400"
           :aria-label="`Open ${project.name} gallery`"
           @click="openGallery(index)"
         >
@@ -257,25 +237,25 @@ watch(currentImage, resetZoom);
             :src="project.image"
             :alt="`${project.name} main screenshot`"
             loading="lazy"
-            class="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            class="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           />
         </button>
 
         <!-- Project information -->
-        <div class="flex flex-1 flex-col p-5 sm:p-6">
+        <div class="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
           <p class="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">
             {{ project.category }}
           </p>
 
-          <h3 class="text-xl font-semibold tracking-tight">
+          <h3 class="text-xl font-semibold tracking-tight sm:text-2xl">
             {{ project.name }}
           </h3>
 
-          <p class="mt-3 text-sm leading-6 text-neutral-400">
+          <p class="mt-3 line-clamp-3 text-sm leading-6 text-neutral-400">
             {{ project.description }}
           </p>
 
-          <!-- Technology tags -->
+          <!-- Technologies -->
           <div class="mt-4 flex flex-wrap gap-2">
             <span
               v-for="technology in project.technologies"
@@ -287,14 +267,14 @@ watch(currentImage, resetZoom);
           </div>
 
           <!-- Actions -->
-          <div class="mt-6 flex flex-wrap items-center gap-3 border-t border-white/10 pt-4">
+          <div class="mt-auto flex flex-wrap items-center gap-3 border-t border-white/10 pt-5">
             <button
               v-if="project.gallery.length"
               type="button"
-              class="inline-flex items-center gap-2 rounded-lg bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-neutral-950 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
+              class="inline-flex items-center gap-2 rounded-lg bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-neutral-950 transition hover:bg-emerald-300"
               @click="openGallery(index)"
             >
-              <span>View gallery</span>
+              View gallery
               <span aria-hidden="true">↗</span>
             </button>
 
@@ -305,8 +285,7 @@ watch(currentImage, resetZoom);
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 rounded-lg border border-white/15 px-4 py-2.5 text-sm font-medium text-neutral-200 transition hover:border-white/40 hover:bg-white/5"
             >
-              GitHub
-              <span aria-hidden="true">↗</span>
+              GitHub ↗
             </a>
 
             <a
@@ -316,172 +295,28 @@ watch(currentImage, resetZoom);
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 rounded-lg border border-white/15 px-4 py-2.5 text-sm font-medium text-neutral-200 transition hover:border-white/40 hover:bg-white/5"
             >
-              Live demo
-              <span aria-hidden="true">↗</span>
+              Live demo ↗
             </a>
           </div>
         </div>
       </article>
     </div>
 
-    <!-- Gallery modal -->
-    <Teleport to="body">
-      <div
-        v-if="isGalleryOpen && selectedProject"
-        class="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-3 backdrop-blur-sm sm:p-6"
-        role="dialog"
-        aria-modal="true"
-        :aria-label="`${selectedProject.name} screenshot gallery`"
-        @click.self="closeGallery"
-        @keydown.esc.window="closeGallery"
-        @keydown.left.window="previousImage"
-        @keydown.right.window="nextImage"
-      >
-        <div
-          class="relative flex max-h-[95vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-neutral-950 shadow-2xl"
-        >
-          <!-- Modal header -->
-          <div
-            class="flex shrink-0 items-center justify-between gap-4 border-b border-white/10 px-4 py-4 sm:px-6"
-          >
-            <div class="min-w-0">
-              <p class="text-xs font-medium uppercase tracking-[0.2em] text-emerald-400">
-                {{ selectedProject.category }}
-              </p>
+    <!-- Right-side fade: indicates more projects -->
+    <div
+      class="pointer-events-none absolute bottom-4 right-0 top-0 w-10 bg-gradient-to-l from-neutral-950/80 to-transparent sm:w-16"
+    ></div>
+  </div>
 
-              <h3 class="mt-1 truncate text-lg font-semibold text-white sm:text-xl">
-                {{ selectedProject.name }}
-              </h3>
-            </div>
+  <!-- Scroll hint -->
+  <div class="mt-3 flex shrink-0 items-center justify-between text-xs text-neutral-500">
+    <span>Explore my work</span>
 
-            <button
-              type="button"
-              class="flex size-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-2xl text-neutral-300 transition hover:bg-white/10 hover:text-white"
-              aria-label="Close gallery"
-              @click="closeGallery"
-            >
-              &times;
-            </button>
-          </div>
-
-          <!-- Main gallery image -->
-          <div
-            class="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden bg-black p-3 sm:p-6"
-            @wheel.prevent="changeZoom($event.deltaY < 0 ? 0.2 : -0.2)"
-          >
-            <img
-              :key="currentImage"
-              :src="currentImage"
-              :alt="`${selectedProject.name} screenshot ${selectedImageIndex + 1}`"
-              draggable="false"
-              class="max-h-[55vh] max-w-full select-none object-contain sm:max-h-[60vh]"
-              :class="zoom > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'"
-              :style="{
-                transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
-                transition: dragStart ? 'none' : 'transform 200ms ease',
-                touchAction: 'none',
-              }"
-              @click="zoom === 1 && changeZoom(1)"
-              @pointerdown="startDrag"
-              @pointermove="dragImage"
-              @pointerup="dragStart = null"
-              @pointercancel="dragStart = null"
-            />
-
-            <!-- Zoom controls -->
-            <div
-              class="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3 rounded-full border border-white/10 bg-neutral-900/95 px-3 py-2 text-white shadow-lg"
-            >
-              <button
-                type="button"
-                aria-label="Zoom out"
-                :disabled="zoom <= 1"
-                class="px-2 text-xl disabled:opacity-30"
-                @click="changeZoom(-0.5)"
-              >
-                −
-              </button>
-
-              <span class="min-w-12 text-center text-sm"> {{ Math.round(zoom * 100) }}% </span>
-
-              <button
-                type="button"
-                aria-label="Zoom in"
-                :disabled="zoom >= 4"
-                class="px-2 text-xl disabled:opacity-30"
-                @click="changeZoom(0.5)"
-              >
-                +
-              </button>
-
-              <button
-                type="button"
-                class="border-l border-white/20 pl-3 text-xs text-emerald-400"
-                @click="resetZoom"
-              >
-                Reset
-              </button>
-            </div>
-
-            <!-- Previous screenshot -->
-            <button
-              v-if="galleryImages.length > 1"
-              type="button"
-              aria-label="Previous screenshot"
-              class="absolute left-3 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-2xl text-white hover:bg-emerald-400 hover:text-black"
-              @click="previousImage"
-            >
-              &#8249;
-            </button>
-
-            <!-- Next screenshot -->
-            <button
-              v-if="galleryImages.length > 1"
-              type="button"
-              aria-label="Next screenshot"
-              class="absolute right-3 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-2xl text-white hover:bg-emerald-400 hover:text-black"
-              @click="nextImage"
-            >
-              &#8250;
-            </button>
-          </div>
-
-          <!-- Thumbnail strip -->
-          <div class="shrink-0 border-t border-white/10 px-4 py-4 sm:px-6">
-            <div class="flex gap-3 overflow-x-auto pb-1">
-              <button
-                v-for="(image, imageIndex) in galleryImages"
-                :key="image"
-                type="button"
-                class="w-24 shrink-0 overflow-hidden rounded-lg border-2 transition sm:w-32"
-                :class="
-                  selectedImageIndex === imageIndex
-                    ? 'border-emerald-400'
-                    : 'border-transparent opacity-60 hover:opacity-100'
-                "
-                :aria-label="`View screenshot ${imageIndex + 1}`"
-                :aria-pressed="selectedImageIndex === imageIndex"
-                @click="selectedImageIndex = imageIndex"
-              >
-                <img
-                  :src="image"
-                  :alt="`Screenshot thumbnail ${imageIndex + 1}`"
-                  class="aspect-[16/10] w-full object-cover object-top"
-                />
-              </button>
-            </div>
-
-            <div class="mt-3 flex items-center justify-between gap-3 text-xs text-neutral-400">
-              <span> Screenshot {{ selectedImageIndex + 1 }} of {{ galleryImages.length }} </span>
-
-              <span class="hidden sm:inline"> Use ← → to navigate · Esc to close </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Teleport>
-  </section>
-
+    <span class="flex items-center gap-2 text-emerald-400">
+      Scroll to discover more
+      <span class="text-lg">→</span>
+    </span>
+  </div>
   <!-- Contact -->
   <section
     id="contact"
