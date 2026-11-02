@@ -217,7 +217,7 @@ watch(currentImage, resetZoom);
   </section>
 
   <!--  projects slider -->
-  <div class="relative min-h-0 flex-1">
+  <div id="projects" class="relative h-[90dvh] flex-1">
     <div
       class="flex h-full items-stretch gap-5 overflow-x-auto overflow-y-hidden pb-4 snap-x snap-mandatory scroll-smooth overscroll-x-contain sm:gap-6"
     >
@@ -308,15 +308,6 @@ watch(currentImage, resetZoom);
     ></div>
   </div>
 
-  <!-- Scroll hint -->
-  <div class="mt-3 flex shrink-0 items-center justify-between text-xs text-neutral-500">
-    <span>Explore my work</span>
-
-    <span class="flex items-center gap-2 text-emerald-400">
-      Scroll to discover more
-      <span class="text-lg">→</span>
-    </span>
-  </div>
   <!-- Contact -->
   <section
     id="contact"
