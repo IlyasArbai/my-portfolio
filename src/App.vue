@@ -247,7 +247,7 @@ watch(currentImage, resetZoom);
             {{ project.category }}
           </p>
 
-          <h3 class="text-xl font-semibold tracking-tight sm:text-2xl">
+          <h3 class="text-xl font-semibold tracking-tight sm:text-2xl text-white">
             {{ project.name }}
           </h3>
 
